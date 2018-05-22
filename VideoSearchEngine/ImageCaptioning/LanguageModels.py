@@ -28,7 +28,7 @@ class EncoderCNN(nn.Module):
         modules = list(resnet.children())[:-1]      # delete the last fc layer.
         self.resnet = nn.Sequential(*modules)
 
-        self.linear = nn.Linear(resnet.fc.in_features, embed_size)
+        self.linear = nn.Linear(resnet.fc.in_features, embedded_size)
 
         # normalize the batch after the embedding
         self.batch_norm = nn.BatchNorm1d(embedded_size, momentum=0.01)
